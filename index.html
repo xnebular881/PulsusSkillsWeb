@@ -16,6 +16,7 @@
 
         body {
             background: #0e0e0f;
+            font-family: 'Outfit', sans-serif;
         }
 
         .container {
@@ -39,13 +40,14 @@
             color: rgb(255, 255, 255);
         }
 
-        .tabs { /*Tab Text*/
+        .tabs { /*tab text*/
             border-bottom: 3px solid grey;
             background-color: white;
             font-size: 25px;
             color: rgb(255, 255, 255);
             display: flex;
             margin: 0;
+            width: fit-content;
         }
 
         .tabs span { /*Tab color*/
@@ -53,17 +55,14 @@
             padding: 10px;
             border: 1px solid grey;
         }
-
-        .tabs span:hover { /*Background on hover*/
-            background: rgb(90, 90, 90);
+      
+        .tabs span:hover { /*Hover effects*/
+            background: rgb(90, 90, 90); /*bg fade */
             cursor: pointer;
-            color: rgb(255, 255, 255);
+            color: rgb(255, 255, 255); /* text color on hover*/
         }
     </style>
-</head>
-
-<body>
-
+    </head>
     <div class="container">
 
         <div class="tabs">
@@ -77,9 +76,12 @@
         <!-- Tab content -->
         <div class="tab-content">
             <div class="tabs__tab" id="#Home" data-tab-info>
-                    <h1><center>Welcome to the Pulsus Skills Web!</center></h1>
-                    <h2><center>The primary resource for awarded and unawarded maps.</center></h2>
-                    <img src="pulsus difficulties/specialRanked.png"/>
+              <body>
+                <h1><center>Welcome to the Pulsus Skills Web!</center></h1>
+                <h2><center>The primary resource for awarded and unawarded maps.</center></h2>
+                <img src="pulsus difficulties/specialRanked.png"/><
+                    </body>
+                  
             </div>
             <div class="tabs__tab" id="Search" data-tab-info>
                 <p>Davos, we are here!</p>
