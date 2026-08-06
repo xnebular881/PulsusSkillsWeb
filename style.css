@@ -45,7 +45,7 @@ body {
 }
 
 .tabs span:hover {
-    background: rgb(90, 90, 90);
+    background: rgb(75, 75, 75);
     cursor: pointer;
     color: rgb(255, 255, 255);
 }
@@ -91,7 +91,7 @@ hr {
 .nested-dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f9f9f9;
+    background-color: #f0f0f0;
     min-width: 160px;
     left: 100%;
     top: 0;
@@ -103,11 +103,11 @@ hr {
 }
 
 .normalButton {
-  background-color: #f0f0f0;
+  background-color: white;
   color: black;
   font-size: 15px;
   padding: 12px;
   border: none;
-  border-radius: 5px;
+  border-radius: 0px;
   cursor: pointer;
 }
