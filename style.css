@@ -102,16 +102,12 @@ hr {
     display: block;
 }
 
-.lightmodeButton {
-    background-color: #04AA6D;
-    color: white;
-    font-size: 15px;
-    padding: 12px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.lightmodeButtom:hover {
-    background-color: #059862;
+.normalButton {
+  background-color: #f0f0f0;
+  color: white;
+  font-size: 15px;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
