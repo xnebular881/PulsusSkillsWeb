@@ -40,19 +40,29 @@
             <div class="tabs__tab" id="Rundown" data-tab-info>
                 <p><center><br>A breakdown of the maps awarded each month. Created by xNebular, though predated by Phonem's project.</center></p>
                 <br><hr><br>
-              
-            <div class="dropdown">
-                <button class="normalButton">
-                    Select Month
-                </button>
-                <div class="dropdown-content" id="mamr-dropdown">
-                    /* now i think all i need to do is write a program */
-                </div>
-            </div>
-            <div id="Rundown"></div>
-
                 
+                <div class="dropdown">
+                    <button class="normalButton">Select Month</button>
+                    <div class="nested-dropdown">
+                        <a href="#">2026</a>
+                        <div class="nested-dropdown-content">
+                            <a href="#january-26">January</a>
+                            <a href="#february-26">February</a>
+                        </div>
+                    </div>
+                    <div class="nested-dropdown">
+                        <a href="#">2025</a>
+                        <div class="nested-dropdown-content">
+                            <a href="#september-25">September</a>
+                            <a href="#october-25">October</a>
+                            <a href="#november-25">November</a>
+                            <a href="#november-25">December</a>
+                        </div>
+                    </div>
+                </div>
+                <div id="RundownContent"></div>
             </div>
+
             <div class="tabs__tab" id="Skillsets" data-tab-info>
                 <p>Ve vill make you live in fear!</p>
             </div>
@@ -76,60 +86,23 @@
             })
         })
 
-let manifestData = {};
-
-fetch('/MAMR/manifest.json')
-  .then(response => response.json())
-  .then(data => {
-    manifestData = data;
-    const dropdownContent = document.querySelector('#mamr-dropdown');
-    const sortedYears = Object.keys(data).sort().reverse();
-    
-    sortedYears.forEach(year => {
-      const nestedDiv = document.createElement('div');
-      nestedDiv.className = 'nested-dropdown';
-      
-      const yearLink = document.createElement('a');
-      yearLink.href = '#';
-      yearLink.textContent = year;
-      nestedDiv.appendChild(yearLink);
-      
-      const monthsDiv = document.createElement('div');
-      monthsDiv.className = 'nested-dropdown-content';
-      
-      data[year].forEach(month => {
-        const monthLink = document.createElement('a');
-        monthLink.textContent = month.charAt(0).toUpperCase() + month.slice(1);
-        monthLink.href = `#${month}-${year.slice(-2)}`;
+        // function to get rundowns
+        function loadRundown() {
+          const hash = window.location.hash.slice(1);
+          if (!hash) return;
+          
+          const [month, yearSuffix] = hash.split('-');
+          const year = `20${yearSuffix}`;
+          
+          fetch(`/MAMR/${year}/${month}.html`)
+            .then(response => response.text())
+            .then(content => {
+              document.querySelector('#RundownContent').innerHTML = content;
+            });
+        }
         
-        monthsDiv.appendChild(monthLink);
-      });
-      
-      nestedDiv.appendChild(monthsDiv);
-      dropdownContent.appendChild(nestedDiv);
-    });
-  });
-        
-// to make it a #
-function loadRundown() {
-  const hash = window.location.hash.slice(1);
-  if (!hash) return;
-  
-  const [month, yearSuffix] = hash.split('-');
-  const year = Object.keys(manifestData).find(y => y.slice(-2) === yearSuffix);
-  
-  if (year && manifestData[year]?.includes(month)) {
-    fetch(`/MAMR/${year}/${month}.html`)
-      .then(response => response.text())
-      .then(content => {
-        document.querySelector('#Rundown').innerHTML = content;
-      });
-  }
-}
-
-window.addEventListener('hashchange', loadRundown);
-loadRundown();
-        
+        window.addEventListener('hashchange', loadRundown);
+        loadRundown();
     </script>
 </body>
 </html>
