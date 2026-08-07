@@ -70,24 +70,7 @@
                 target.classList.add('active');
             })
         })
-
-        // function to get rundowns
-        function loadRundown() {
-          const hash = window.location.hash.slice(1);
-          if (!hash) return;
-          
-          const [month, yearSuffix] = hash.split('-');
-          const year = `20${yearSuffix}`;
-          
-          fetch(`/MAMR/${year}/${month}.html`)
-            .then(response => response.text())
-            .then(content => {
-              document.querySelector('#RundownContent').innerHTML = content;
-            });
-        }
         
-        window.addEventListener('hashchange', loadRundown);
-        loadRundown();
     </script>
 </body>
 </html>
