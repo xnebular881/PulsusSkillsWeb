@@ -111,4 +111,5 @@ hr {
   border: none;
   border-radius: 0px;
   cursor: pointer;
+  float: right;
 }
