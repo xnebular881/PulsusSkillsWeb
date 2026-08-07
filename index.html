@@ -8,7 +8,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <p align="right"><button class="normalButton">Light Mode (Inactive)</button></p>
 </head>
 <body>
     <div class="container">
@@ -21,8 +20,18 @@
           <span data-tab-value="#Skillsets">Skillset Glossary</span>
         </div>
 
+        <p align="right"><button class="normalButton">Light Mode (Inactive)</button></p>
+
+        <!-- may add more themes like in pulsus, default blue could be good to match with game and official site (priority) -->
+
+
+        
+        <!-- actual website content -->
+        
         <div class="tab-content">
             <div class="tabs__tab" id="Home" data-tab-info class="active">
+
+                
                 <center>
                   <h1>Welcome to Pulsus Skills Web!</h1>
                   <h2>The primary resource for awarded and unawarded maps.</h2>
@@ -32,12 +41,21 @@
                 <p>Don't know where to start? Try curated packs of maps based on certain criteria.</p>
                   <img src="pulsus difficulties/specialRanked.png"/>
             </div>
+
+             <!-- Search Tab -->
+            
             <div class="tabs__tab" id="Search" data-tab-info>
                 <p>Davos, ve are here!</p>
             </div>
+
+            <!-- Map Packs Tab -->
+            
             <div class="tabs__tab" id="Packs" data-tab-info>
                 <p>Ze agenda is quite clear!</p>
             </div>
+
+            <!-- MAMR Tab -->
+            
             <div class="tabs__tab" id="Rundown" data-tab-info>
                 <p><center><br>A breakdown of the maps awarded each month. Created by xNebular, though predated by Phonem's project.</center></p>
                 <br><hr><br>
@@ -100,11 +118,17 @@
                 </div>
             </div>
 
+            <!-- Glossary Tab -->
+            
             <div class="tabs__tab" id="Skillsets" data-tab-info>
                 <p>Ve vill make you live in fear!</p>
             </div>
         </div>
     </div>
+
+
+
+    
     <script type="text/javascript">
 
         // function to get each tab details
