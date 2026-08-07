@@ -86,7 +86,7 @@
                                     >August</a>
                               <a href="#september-25"
                                     >September</a>
-                            <div getRundown="MAMR/2025/september.html">
+                            <div id="september-2025.html"></div>
                                 <a href="#october-25"
                                     >October</a>
                               <a href="#november-25"
@@ -121,6 +121,10 @@
                 target.classList.add('active');
             })
         })
+
+        $(document).ready(function () {
+            $("#september-2025").load("MAMR/2025/september.html");
+        }); // but then i'd have to do this every time UGHHHH i'd need something else
         
     </script>
 </body>
