@@ -75,6 +75,61 @@
                 target.classList.add('active');
             })
         })
+
+let manifestData = {};
+
+fetch('/MAMR/manifest.json')
+  .then(response => response.json())
+  .then(data => {
+    manifestData = data;
+    const dropdownContent = document.querySelector('#mamr-dropdown');
+    const sortedYears = Object.keys(data).sort().reverse();
+    
+    sortedYears.forEach(year => {
+      const nestedDiv = document.createElement('div');
+      nestedDiv.className = 'nested-dropdown';
+      
+      const yearLink = document.createElement('a');
+      yearLink.href = '#';
+      yearLink.textContent = year;
+      nestedDiv.appendChild(yearLink);
+      
+      const monthsDiv = document.createElement('div');
+      monthsDiv.className = 'nested-dropdown-content';
+      
+      data[year].forEach(month => {
+        const monthLink = document.createElement('a');
+        monthLink.textContent = month.charAt(0).toUpperCase() + month.slice(1);
+        monthLink.href = `#${month}-${year.slice(-2)}`;
+        
+        monthsDiv.appendChild(monthLink);
+      });
+      
+      nestedDiv.appendChild(monthsDiv);
+      dropdownContent.appendChild(nestedDiv);
+    });
+  });
+        
+// to make it a #
+function loadRundown() {
+  const hash = window.location.hash.slice(1);
+  if (!hash) return;
+  
+  const [month, yearSuffix] = hash.split('-');
+  const year = Object.keys(manifestData).find(y => y.slice(-2) === yearSuffix);
+  
+  if (year && manifestData[year]?.includes(month)) {
+    fetch(`/MAMR/${year}/${month}.html`)
+      .then(response => response.text())
+      .then(content => {
+        document.querySelector('#Rundown').innerHTML = content;
+      });
+  }
+}
+
+window.addEventListener('hashchange', loadRundown);
+loadRundown();
+        
     </script>
 </body>
 </html>
