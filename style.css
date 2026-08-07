@@ -77,7 +77,7 @@ hr {
 }
 
 .dropdown-content a:hover {
-    background-color: #f1f1f1;
+    background-color: #ebebeb;
 }
 
 .dropdown:hover .dropdown-content {
@@ -91,7 +91,7 @@ hr {
 .nested-dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f0f0f0;
+    background-color: #dbdbdb;
     min-width: 160px;
     left: 100%;
     top: 0;
