@@ -26,7 +26,7 @@
 
 
         <!-- actual website content -->
-        
+
         <div class="tab-content">
             <div class="tabs__tab" id="Home" data-tab-info class="active">
                 <center>
@@ -41,22 +41,24 @@
 
 
             <!-- Search -->
-            
+
             <div class="tabs__tab" id="Search" data-tab-info>
                 <p>Davos, ve are here!</p>
             </div>
 
             <!-- Map Packs -->
-            
+
             <div class="tabs__tab" id="Packs" data-tab-info>
                 <p>Ze agenda is quite clear!</p>
             </div>
 
             <!-- MAMR -->
-            
+
             <div class="tabs__tab" id="Rundown" data-tab-info>
+                <p><center><br>A breakdown of the maps awarded each month. Created by xNebular, though predated by Phonem's project.</center></p>
+                <p>If you'd like to help write or have anything you'd like to be added, DM @xnebular on Discord.</p>
                 <p><center><br>A breakdown of the maps awarded each month. Created by xNebular, though predated by Phonem's project.</p>
-                <p>If you'd like to contribute or have anything you'd like to be included, DM @xnebular on Discord.</p></center>
+                <p>If you'd like to help write or have anything you'd like to be added, DM @xnebular on Discord.</p></center>
                 <br><hr><br>
 
                       <div class="dropdown">
@@ -116,7 +118,7 @@
             </div>
 
             <!-- Glossary -->
-            
+
             <div class="tabs__tab" id="Skillsets" data-tab-info>
                 <p>Ve vill make you live in fear!</p>
             </div>
@@ -145,23 +147,11 @@
                 e.preventDefault(); // STOP
                 const monthId = $(this).attr('href').substring(1);
                 const filePath = 'MAMR/' + constructPath(monthId);
+
                 $('#rundown-content').load(filePath);
             });
         });
 
-        $(window).on('hashchange', function() {
-            const monthId = window.location.hash.substring(1);
-            if (monthId) {
-                loadRundown(monthId);
-            }
-        });
-        
-        if (window.location.hash) {
-                    const monthId = window.location.hash.substring(1);
-                    loadRundown(monthId);
-                }
-            }); // url fix
-        
         function constructPath(monthId) {
             const parts = monthId.split('-');
             const month = parts[0];
