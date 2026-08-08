@@ -188,6 +188,11 @@
             // this is a damn mess idc
         }
 
+        $('.switch-theme').click(function(e) {
+            e.preventDefault(); // no theme url
+            const theme = $(this).data('theme');
+        });
+        
     </script>
 </body>
 </html>
