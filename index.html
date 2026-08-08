@@ -20,18 +20,18 @@
           <span data-tab-value="#Rundown">Monthly Awarded Map Rundown</span>
           <span data-tab-value="#Skillsets">Skillset Glossary</span>
         </div>
-
+        <br> <!-- stopgap br, make right aligned; either that or switch to navbar which i just learned was a thing-->
         <div class="dropdown">
                     <p align="right"><button class="normalButton">Select Theme (Inactive)</button></p>
                     <div class="dropdown-content">
                         <a class="switch-theme" data-theme="default"
                             >Default (Dark Blue)</a>
-                        <a class="switch-theme" data-theme="dark"
-                            >Dark</a>
-                        <a class="switch-theme" data-theme="light"
-                            >Light</a>
                         <a class="switch-theme" data-theme="light-blue"
                             >Light Blue</a>
+                        <a class="switch-theme" data-theme="dark"
+                            >Black</a>
+                        <a class="switch-theme" data-theme="light"
+                            >White</a>
                         <a class="switch-theme" data-theme="forest-green"
                             >Forest Green</a>
                         </div>
@@ -179,6 +179,8 @@
                 $('#rundown-content').load(filePath);
             });
         });
+
+        // rundown shit
         
         function constructPath(monthId) {
             const parts = monthId.split('-');
@@ -187,11 +189,6 @@
             return year + '/' + month + '.html';
             // this is a damn mess idc
         }
-
-        $('.switch-theme').click(function(e) {
-            e.preventDefault(); // no theme url
-            const theme = $(this).data('theme');
-        });
 
         function loadRundown() {
             const monthId = window.location.hash.substring(1);
@@ -202,6 +199,11 @@
                 document.querySelector('#Home').classList.remove('active');
             }
         }
+
+        $('.switch-theme').click(function(e) {
+            e.preventDefault(); // no theme url
+            const theme = $(this).data('theme');
+        });
         
         document.addEventListener('DOMContentLoaded', loadRundown);
         window.addEventListener('hashchange', loadRundown);
