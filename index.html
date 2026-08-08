@@ -141,8 +141,22 @@
         })
 
         $(document).ready(function () {
-            $("#september-2025").load("MAMR/2025/september.html");
-        }); // but then i'd have to do this every time UGHHHH i'd need something else
+            $('.nested-dropdown-content a[href^="#"]').click(function(e) {
+                e.preventDefault(); // STOP
+                const monthId = $(this).attr('href').substring(1);
+                const filePath = 'MAMR/' + constructPath(monthId);
+                
+                $('#rundown-content').load(filePath);
+            });
+        });
+        
+        function constructPath(monthId) {
+            const parts = monthId.split('-');
+            const month = parts[0];
+            const year = '20' + parts[1];
+            return year + '/' + month + '.html';
+            // this is a damn mess idc
+        }
 
     </script>
 </body>
