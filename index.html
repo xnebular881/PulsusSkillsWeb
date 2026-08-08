@@ -173,7 +173,6 @@
 
         $(document).ready(function () {
             $('.nested-dropdown-content a[href^="#"]').click(function(e) {
-                e.preventDefault(); // STOP
                 const monthId = $(this).attr('href').substring(1);
                 const filePath = 'MAMR/' + constructPath(monthId);
                 
