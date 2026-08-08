@@ -24,16 +24,16 @@
         <div class="dropdown">
                     <p align="right"><button class="normalButton">Select Theme (Inactive)</button></p>
                     <div class="dropdown-content">
-                        <a href="#default"
-                        >Default (Dark Blue)</a>
-                        <a href="#light"
-                        >Light</a>
-                        <a href="#dark"
-                        >Dark</a>
-                        <a href="#light-blue"
-                        >Light Blue</a>
-                        <a href="#forest-green"
-                        >Forest Green</a>
+                        <a class="switch-theme" data-theme="default"
+                            >Default (Dark Blue)</a>
+                        <a class="switch-theme" data-theme="dark"
+                            >Dark</a>
+                        <a class="switch-theme" data-theme="light"
+                            >Light</a>
+                        <a class="switch-theme" data-theme="light-blue"
+                            >Light Blue</a>
+                        <a class="switch-theme" data-theme="forest-green"
+                            >Forest Green</a>
                         </div>
                     </div>
 
@@ -192,6 +192,19 @@
             e.preventDefault(); // no theme url
             const theme = $(this).data('theme');
         });
+
+        function loadRundown() {
+            const monthId = window.location.hash.substring(1);
+            if (monthId) {
+                const filePath = 'MAMR/' + constructPath(monthId);
+                $('#rundown-content').load(filePath);
+                document.querySelector('#Rundown').classList.add('active');
+                document.querySelector('#Home').classList.remove('active');
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', loadRundown);
+        window.addEventListener('hashchange', loadRundown);
         
     </script>
 </body>
