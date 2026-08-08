@@ -148,8 +148,14 @@
         })
 
         $(document).ready(function () {
-            $("#september-2025").load("MAMR/2025/september.html");
-        }); // but then i'd have to do this every time UGHHHH i'd need something else
+    $(".nested-dropdown-content a").on("click", function(e) {
+        e.preventDefault();
+        var monthId = $(this).attr("href").substring(1); // removes the #
+        var filePath = "MAMR/" + monthId + ".html";
+        $("#rundown-content").load(filePath);
+    });
+});
+
         
     </script>
 </body>
